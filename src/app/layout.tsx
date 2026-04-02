@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${plusJakarta.variable}`}>
       <head>
         <JsonLd content={content} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

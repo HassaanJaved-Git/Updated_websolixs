@@ -26,7 +26,7 @@ export default function JsonLd({ content }: JsonLdProps) {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      email: "hello@websolixs.com",
+      email: "info@websolixs.com",
       contactType: "customer service",
     },
     sameAs: [
