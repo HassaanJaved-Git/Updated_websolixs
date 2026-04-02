@@ -1,0 +1,260 @@
+{
+  "seo": {
+    "title": "Websolixs — Next-Gen Software House",
+    "description": "We craft scalable web & mobile applications, bespoke digital products, and immersive experiences. Your vision, engineered to perfection.",
+    "keywords": [
+      "software house",
+      "web development",
+      "mobile app development",
+      "MERN stack",
+      "Next.js",
+      "React",
+      "custom software",
+      "UI/UX design",
+      "Websolixs"
+    ],
+    "ogImage": "/og-image.jpg",
+    "canonical": "https://websolixs.com"
+  },
+  "nav": {
+    "logo": "WEBSOLIXS",
+    "tagline": "We build digital futures.",
+    "items": [
+      { "label": "Services", "href": "#services" },
+      { "label": "Work", "href": "#projects" },
+      { "label": "About", "href": "#about" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "cta": "Start a Project"
+  },
+  "hero": {
+    "badge": "Next-Generation Software House",
+    "title": "We Engineer",
+    "titleHighlight": "Digital Futures.",
+    "subtitle": "From bold ideas to production-ready systems — we craft scalable web applications, immersive mobile experiences, and custom digital products that move at the speed of your ambition.",
+    "ctaPrimary": { "label": "Start a Project", "href": "#contact" },
+    "ctaSecondary": { "label": "View Our Work", "href": "#projects" },
+    "stats": [
+      { "value": "120+", "label": "Projects Shipped" },
+      { "value": "98%", "label": "Client Satisfaction" },
+      { "value": "5+", "label": "Years of Excellence" },
+      { "value": "40+", "label": "Global Clients" }
+    ]
+  },
+  "services": {
+    "heading": "What We Build",
+    "subheading": "End-to-end engineering across the full digital stack — from pixel-perfect interfaces to cloud-native backends.",
+    "items": [
+      {
+        "id": "web-dev",
+        "icon": "Globe",
+        "title": "Web Development",
+        "description": "Performant, scalable web apps built on modern stacks. We ship React, Next.js, and Node.js solutions that load fast and scale effortlessly.",
+        "tags": ["Next.js", "React", "Node.js", "TypeScript"]
+      },
+      {
+        "id": "mobile",
+        "icon": "Smartphone",
+        "title": "Mobile Applications",
+        "description": "Cross-platform mobile apps that feel truly native. From fintech to e-commerce, we build experiences users love.",
+        "tags": ["React Native", "Expo", "iOS", "Android"]
+      },
+      {
+        "id": "ui-ux",
+        "icon": "Layers",
+        "title": "UI/UX Design",
+        "description": "Human-centered design systems and interactive prototypes. Every pixel has purpose — every interaction tells a story.",
+        "tags": ["Figma", "Design Systems", "Prototyping", "User Research"]
+      },
+      {
+        "id": "cloud",
+        "icon": "Cloud",
+        "title": "Cloud & DevOps",
+        "description": "Robust cloud infrastructure, CI/CD pipelines, and containerized deployments that keep your product always available.",
+        "tags": ["AWS", "Docker", "Vercel", "CI/CD"]
+      },
+      {
+        "id": "ecommerce",
+        "icon": "ShoppingBag",
+        "title": "E-Commerce Solutions",
+        "description": "High-converting storefronts and custom commerce platforms. We turn browsers into buyers with data-driven UX.",
+        "tags": ["Shopify", "WooCommerce", "Custom", "Payments"]
+      },
+      {
+        "id": "ai",
+        "icon": "Cpu",
+        "title": "AI Integration",
+        "description": "Embed intelligence into your products. From LLM-powered features to custom ML pipelines, we make your software smarter.",
+        "tags": ["OpenAI", "LangChain", "Python", "APIs"]
+      }
+    ]
+  },
+  "projects": {
+    "heading": "Selected Work",
+    "subheading": "A curated selection of projects that challenged us — and the results that exceeded expectations.",
+    "items": [
+      {
+        "id": "proj-1",
+        "title": "NovaPay",
+        "category": "Fintech",
+        "description": "A real-time payment platform processing $2M+ daily with sub-50ms latency and bulletproof security.",
+        "tags": ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
+        "image": "/images/project-1.jpg",
+        "color": "#c8ff00",
+        "href": "#"
+      },
+      {
+        "id": "proj-2",
+        "title": "OrbitalHR",
+        "category": "SaaS",
+        "description": "An AI-powered HR platform used by 500+ companies to streamline hiring, onboarding, and performance management.",
+        "tags": ["React", "Django", "OpenAI", "AWS"],
+        "image": "/images/project-2.jpg",
+        "color": "#00e5ff",
+        "href": "#"
+      },
+      {
+        "id": "proj-3",
+        "title": "MarketSpace",
+        "category": "E-Commerce",
+        "description": "A multi-vendor marketplace with 10K+ active sellers, real-time inventory, and a custom recommendation engine.",
+        "tags": ["Next.js", "Shopify", "Algolia", "Redis"],
+        "image": "/images/project-3.jpg",
+        "color": "#ff3d5a",
+        "href": "#"
+      },
+      {
+        "id": "proj-4",
+        "title": "PulseHealth",
+        "category": "HealthTech",
+        "description": "Telemedicine platform connecting 200K+ patients to doctors with video consultations, prescriptions, and EHR.",
+        "tags": ["React Native", "WebRTC", "Node.js", "MongoDB"],
+        "image": "/images/project-4.jpg",
+        "color": "#a855f7",
+        "href": "#"
+      }
+    ]
+  },
+  "stats": {
+    "heading": "Numbers That Matter",
+    "items": [
+      {
+        "value": "120",
+        "suffix": "+",
+        "label": "Projects Shipped",
+        "description": "Across startups, scale-ups, and enterprises globally"
+      },
+      {
+        "value": "5",
+        "suffix": "M+",
+        "label": "Users Impacted",
+        "description": "Products we built are used by millions every day"
+      },
+      {
+        "value": "98",
+        "suffix": "%",
+        "label": "Client Retention",
+        "description": "Our clients keep coming back — and bring their friends"
+      },
+      {
+        "value": "40",
+        "suffix": "+",
+        "label": "Global Clients",
+        "description": "From New York to Karachi, Singapore to London"
+      }
+    ]
+  },
+  "about": {
+    "heading": "Built by engineers,\ndriven by craft.",
+    "subheading": "We are Websolixs",
+    "body": "Founded in 2019, Websolixs started with a simple belief: great software should be beautiful, fast, and built to last. Today, we are a team of 25+ engineers, designers, and strategists obsessed with pushing the boundary of what's possible on the web and beyond. We don't just write code — we architect experiences, engineer scale, and obsess over the details that make users fall in love with products.",
+    "image": "/images/about-team.jpg",
+    "highlights": [
+      "25+ in-house engineers & designers",
+      "Agile sprints, transparent communication",
+      "Full IP ownership transferred to clients",
+      "24/7 post-launch support & monitoring"
+    ]
+  },
+  "testimonials": {
+    "heading": "What Clients Say",
+    "subheading": "Don't take our word for it.",
+    "items": [
+      {
+        "id": "t1",
+        "name": "Sarah Chen",
+        "role": "CTO",
+        "company": "NovaPay Inc.",
+        "avatar": "/images/avatar-1.jpg",
+        "quote": "Websolixs delivered a fintech platform that exceeded every expectation. Their engineering discipline and attention to security is unmatched. Best investment we've made.",
+        "rating": 5
+      },
+      {
+        "id": "t2",
+        "name": "Mikael Strand",
+        "role": "Founder",
+        "company": "OrbitalHR",
+        "avatar": "/images/avatar-2.jpg",
+        "quote": "The team took our rough concept and shipped a polished SaaS product in 3 months. Communication was exceptional throughout. Highly recommend.",
+        "rating": 5
+      },
+      {
+        "id": "t3",
+        "name": "Amara Osei",
+        "role": "Head of Product",
+        "company": "MarketSpace",
+        "avatar": "/images/avatar-3.jpg",
+        "quote": "They rebuilt our entire e-commerce platform from scratch. Page load dropped from 8s to under 1s. Sales went up 40% the following quarter.",
+        "rating": 5
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Let's Build\nSomething Great.",
+    "subheading": "Tell us about your project. We'll get back within 24 hours.",
+    "info": {
+      "email": "hello@websolixs.com",
+      "phone": "+92 300 1234567",
+      "address": "Lahore, Pakistan — Remote Worldwide",
+      "socials": [
+        { "platform": "LinkedIn", "href": "https://linkedin.com/company/websolixs", "label": "LinkedIn" },
+        { "platform": "GitHub", "href": "https://github.com/websolixs", "label": "GitHub" },
+        { "platform": "Twitter", "href": "https://twitter.com/websolixs", "label": "Twitter" },
+        { "platform": "Instagram", "href": "https://instagram.com/websolixs", "label": "Instagram" }
+      ]
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "heading": "Services",
+        "links": [
+          { "label": "Web Development", "href": "#services" },
+          { "label": "Mobile Apps", "href": "#services" },
+          { "label": "UI/UX Design", "href": "#services" },
+          { "label": "Cloud & DevOps", "href": "#services" },
+          { "label": "AI Integration", "href": "#services" }
+        ]
+      },
+      {
+        "heading": "Company",
+        "links": [
+          { "label": "About Us", "href": "#about" },
+          { "label": "Our Work", "href": "#projects" },
+          { "label": "Careers", "href": "/careers" },
+          { "label": "Blog", "href": "/blog" }
+        ]
+      },
+      {
+        "heading": "Legal",
+        "links": [
+          { "label": "Privacy Policy", "href": "/privacy" },
+          { "label": "Terms of Service", "href": "/terms" },
+          { "label": "Cookie Policy", "href": "/cookies" }
+        ]
+      }
+    ],
+    "legal": "© 2025 Websolixs. All rights reserved.",
+    "builtWith": "Built with Next.js & Tailwind CSS"
+  }
+}
