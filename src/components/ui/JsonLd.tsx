@@ -18,7 +18,7 @@ export default function JsonLd({ content }: JsonLdProps) {
       url: `${seo.canonical}/logo.png`,
     },
     description: seo.description,
-    foundingDate: "2019",
+    foundingDate: "2021",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Lahore",

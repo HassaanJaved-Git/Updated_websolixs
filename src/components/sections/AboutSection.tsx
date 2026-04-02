@@ -191,7 +191,7 @@ export default function AboutSection({ about }: AboutProps) {
                   }}
                 >
                   <span className="text-3xl font-black text-[var(--color-accent)] tracking-tight">WS</span>
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)]">Since 2019</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)]">Since 2021</span>
                 </div>
               </div>
 

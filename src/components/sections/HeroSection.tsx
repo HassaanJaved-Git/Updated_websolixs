@@ -391,7 +391,8 @@ export default function HeroSection({ hero }: HeroProps) {
         {/* Animated title */}
         <div className="mb-6 overflow-hidden" style={{ perspective: "600px" }}>
           <h1 className="text-[clamp(3.2rem,8.5vw,7.5rem)] font-black leading-[0.92] tracking-[-0.04em]">
-            <div ref={titleLine1Ref} style={{ overflow: "hidden" }}>
+            <div ref={titleLine1Ref} style={{ overflow: "hidden" , height: "1.1em"
+            }}>
               <SplitChars
                 text={hero.title}
                 className="block text-[var(--color-text-primary)]"
