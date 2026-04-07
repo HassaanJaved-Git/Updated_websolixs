@@ -1,11 +1,21 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SiteContent } from "@/types";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Service to image mapping
+const SERVICE_IMAGES: Record<string, string> = {
+  "web-dev": "web_development.jpg",
+  "mobile": "mobile_development.jpg",
+  "ui-ux": "UI_design.jpg",
+  "cloud": "dev_ops.jpg",
+  "ecommerce": "e_commerce.jpg",
+  "ai": "ai.jpg",
+};
 
 const ICONS: Record<string, React.ReactNode> = {
   Globe: (
@@ -187,13 +197,54 @@ export default function ServicesSection({ services }: ServicesProps) {
           aria-label="Our services"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {services.items.map((service, i) => (
+          {services.items.map((service, i) => {
+            const imagePath = SERVICE_IMAGES[service.id] || "web_development.jpg";
+            const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+
+            const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+              const card = e.currentTarget;
+              const rect = card.getBoundingClientRect();
+              const x = ((e.clientX - rect.left) / rect.width) * 100;
+              const y = ((e.clientY - rect.top) / rect.height) * 100;
+              setMousePos({ x, y });
+            };
+
+            const handleMouseLeave = () => {
+              setMousePos({ x: 50, y: 50 });
+            };
+
+            return (
             <article
               key={service.id}
               data-service-card
               role="listitem"
-              className="group relative p-7 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] cursor-pointer overflow-hidden transition-colors duration-300 hover:border-[rgba(200,255,0,0.3)]"
+              className="group relative p-7 rounded-2xl border border-[var(--color-border)] cursor-pointer overflow-hidden transition-all duration-300 hover:border-[rgba(200,255,0,0.3)]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                backgroundImage: `url(/images/services/${imagePath})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
+              {/* Background image overlay for text readability */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: "linear-gradient(135deg, rgba(13,13,26,0.80) 0%, rgba(13,13,26,0.70) 50%, rgba(13,13,26,0.80) 100%)",
+                }}
+              />
+
+              {/* White overlay on hover */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+                style={{
+                  background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 25%, rgba(255,255,255,0.05) 50%, transparent 80%)`,
+                }}
+              />
+
               {/* Animated background glow on hover */}
               <div
                 aria-hidden="true"
@@ -214,55 +265,59 @@ export default function ServicesSection({ services }: ServicesProps) {
                 }}
               />
 
-              {/* Index number */}
-              <span
-                aria-hidden="true"
-                className="absolute top-5 right-6 text-[11px] font-bold text-[var(--color-text-muted)] tabular-nums"
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              {/* Content wrapper — positioned relative to overlay */}
+              <div className="relative z-10">
+                {/* Index number */}
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 right-0 text-[11px] font-bold text-white tabular-nums"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
 
-              {/* Icon */}
-              <div
-                data-icon
-                className="w-11 h-11 flex items-center justify-center rounded-xl bg-[var(--color-accent-dim)] text-[var(--color-accent)] mb-6 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-bg)] transition-all duration-300"
-                aria-hidden="true"
-              >
-                {ICONS[service.icon] ?? ICONS.Globe}
-              </div>
+                {/* Icon */}
+                <div
+                  data-icon
+                  className="w-11 h-11 flex items-center justify-center rounded-xl bg-[var(--color-accent-dim)] text-white mb-6 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-bg)] transition-all duration-300"
+                  aria-hidden="true"
+                >
+                  {ICONS[service.icon] ?? ICONS.Globe}
+                </div>
 
-              {/* Content */}
-              <h3 className="text-[1.15rem] font-bold text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-accent)] transition-colors duration-300 leading-snug">
-                {service.title}
-              </h3>
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-6">
-                {service.description}
-              </p>
+                {/* Content */}
+                <h3 className="text-[1.15rem] font-bold text-white mb-3 transition-colors duration-300 leading-snug">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-[rgba(255,255,255,0.85)] leading-relaxed mb-6">
+                  {service.description}
+                </p>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5" role="list" aria-label={`Technologies used in ${service.title}`}>
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    role="listitem"
-                    className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5" role="list" aria-label={`Technologies used in ${service.title}`}>
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      role="listitem"
+                      className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[rgba(13,13,26,0.6)] border border-[rgba(200,255,0,0.2)] text-white"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-              {/* Hover arrow */}
-              <div
-                aria-hidden="true"
-                className="absolute bottom-6 right-6 w-7 h-7 rounded-full border border-[var(--color-accent)] flex items-center justify-center text-[var(--color-accent)] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
-              >
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                {/* Hover arrow */}
+                <div
+                  aria-hidden="true"
+                  className="absolute bottom-0 right-0 w-7 h-7 rounded-full border border-[var(--color-accent)] flex items-center justify-center text-[var(--color-accent)] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
