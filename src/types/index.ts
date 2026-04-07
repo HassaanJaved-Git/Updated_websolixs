@@ -44,14 +44,18 @@ export interface ProjectCard {
   href: string;
 }
 
-export interface Testimonial {
+
+export interface UseCase {
   id: string;
-  name: string;
-  role: string;
-  company: string;
-  avatar: string;
-  quote: string;
-  rating: number;
+  number: number;
+  title: string;
+  description: string;
+  challenge: string;
+  solution: string;
+  result: string;
+  icon: string;
+  color: string;
+  image: string;
 }
 
 export interface TeamMember {
@@ -94,7 +98,7 @@ export interface SiteContent {
   projects: { heading: string; subheading: string; items: ProjectCard[] };
   stats: { heading: string; items: Stat[] };
   about: { heading: string; subheading: string; body: string; image: string; highlights: string[] };
-  testimonials: { heading: string; subheading: string; items: Testimonial[] };
+  useCases: { heading: string; subheading: string; items: UseCase[] };
   contact: { heading: string; subheading: string; info: ContactInfo };
   footer: { columns: FooterColumn[]; legal: string; builtWith: string };
 }

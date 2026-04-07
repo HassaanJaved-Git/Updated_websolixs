@@ -8,7 +8,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import StatsSection from "@/components/sections/StatsSection";
 import AboutSection from "@/components/sections/AboutSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import UseCasesSection from "@/components/sections/UseCasesSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 export default function HomePage() {
@@ -33,7 +33,7 @@ export default function HomePage() {
         <ProjectsSection projects={content.projects} />
         <StatsSection stats={content.stats} />
         <AboutSection about={content.about} />
-        <TestimonialsSection testimonials={content.testimonials} />
+        <UseCasesSection useCases={content.useCases} />
         <ContactSection contact={content.contact} />
       </main>
 

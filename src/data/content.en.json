@@ -176,36 +176,69 @@
       "24/7 post-launch support & monitoring"
     ]
   },
-  "testimonials": {
-    "heading": "What Clients Say",
-    "subheading": "Don't take our word for it.",
+  "useCases": {
+    "heading": "How We Transform Ideas Into Impact",
+    "subheading": "Follow the journey from concept to reality through our proven process.",
     "items": [
       {
-        "id": "t1",
-        "name": "Sarah Chen",
-        "role": "CTO",
-        "company": "NovaPay Inc.",
-        "avatar": "/images/avatar-1.jpg",
-        "quote": "Websolixs delivered a fintech platform that exceeded every expectation. Their engineering discipline and attention to security is unmatched. Best investment we've made.",
-        "rating": 5
+        "id": "uc-1",
+        "number": 1,
+        "title": "Discovery & Strategy",
+        "description": "We start by deeply understanding your vision, market, and users.",
+        "challenge": "Your idea is brilliant, but you need a technical roadmap to bring it to life.",
+        "solution": "Our strategic consultants conduct workshops, market research, and competitor analysis to define a clear technical direction.",
+        "result": "A comprehensive product strategy and technical architecture ready for development.",
+        "icon": "Lightbulb",
+        "color": "#c8ff00",
+        "image": "/images/use_cases/usecase1.jpg"
       },
       {
-        "id": "t2",
-        "name": "Mikael Strand",
-        "role": "Founder",
-        "company": "OrbitalHR",
-        "avatar": "/images/avatar-2.jpg",
-        "quote": "The team took our rough concept and shipped a polished SaaS product in 3 months. Communication was exceptional throughout. Highly recommend.",
-        "rating": 5
+        "id": "uc-2",
+        "number": 2,
+        "title": "Design & Prototyping",
+        "description": "We craft intuitive designs that users love and engineers can build on.",
+        "challenge": "Great functionality means nothing if users can't figure out how to use it.",
+        "solution": "Our design team creates high-fidelity prototypes, conducts user testing, and iterates based on real feedback.",
+        "result": "A design system and interactive prototype that validates product-market fit before a single line of code.",
+        "icon": "Palette",
+        "color": "#00e5ff",
+        "image": "/images/use_cases/usecase2.jpg"
       },
       {
-        "id": "t3",
-        "name": "Amara Osei",
-        "role": "Head of Product",
-        "company": "MarketSpace",
-        "avatar": "/images/avatar-3.jpg",
-        "quote": "They rebuilt our entire e-commerce platform from scratch. Page load dropped from 8s to under 1s. Sales went up 40% the following quarter.",
-        "rating": 5
+        "id": "uc-3",
+        "number": 3,
+        "title": "Development & Engineering",
+        "description": "We build scalable, production-ready systems with cutting-edge technology.",
+        "challenge": "Moving from design to reality requires architectural discipline and performance obsession.",
+        "solution": "Our engineers build on modern stacks (Next.js, Node.js, React), implement CI/CD pipelines, and comprehensive testing.",
+        "result": "A robust, scalable application deployed and live with sub-second load times and 99.9% uptime.",
+        "icon": "Code",
+        "color": "#ff3d5a",
+        "image": "/images/use_cases/usecase3.jpg"
+      },
+      {
+        "id": "uc-4",
+        "number": 4,
+        "title": "Launch & Optimization",
+        "description": "We ensure a flawless launch and immediately start optimizing based on real user data.",
+        "challenge": "Launch day is not the finish line — it's where real performance begins.",
+        "solution": "We monitor analytics, conduct A/B testing, optimize conversion funnels, and continuously improve based on user behavior.",
+        "result": "A successful launch with measurable growth in user engagement, retention, and revenue.",
+        "icon": "Rocket",
+        "color": "#a855f7",
+        "image": "/images/use_cases/usecase4.jpg"
+      },
+      {
+        "id": "uc-5",
+        "number": 5,
+        "title": "Support & Evolution",
+        "description": "We partner with you long-term, supporting growth and adapting to market changes.",
+        "challenge": "Technology evolves, user needs shift, and bugs inevitably emerge.",
+        "solution": "24/7 monitoring, rapid incident response, feature enhancements, and tech debt management keep your product thriving.",
+        "result": "A product that grows and evolves with your business, ensuring long-term success and competitive advantage.",
+        "icon": "Shield",
+        "color": "#6366f1",
+        "image": "/images/use_cases/usecase5.jpg"
       }
     ]
   },
