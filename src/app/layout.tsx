@@ -93,7 +93,7 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="en" href="https://websolixs.com" />
         <link rel="alternate" hrefLang="x-default" href="https://websolixs.com" />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <CustomCursor />
           {children}

@@ -308,6 +308,27 @@ export default function HeroSection({ hero }: HeroProps) {
         className="absolute inset-0 w-full h-full z-0 pointer-events-none"
       />
 
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+      >
+        <source src="/videos/hero/3249902-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+      </video>
+
+      {/* Readability overlay */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-1 pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, rgba(255, 255, 255, 0.24) 100%)",
+        }}
+      />
+
       {/* Background layers */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         {/* Grid lines */}

@@ -14,6 +14,7 @@ interface UseCasesSectionProps {
 // Enhanced animated background with gradient mesh
 function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -73,10 +74,10 @@ function AnimatedBackground() {
         ctx.fill();
       });
 
-      requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     }
 
-    animate();
+    animationRef.current = requestAnimationFrame(animate);
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
@@ -84,10 +85,15 @@ function AnimatedBackground() {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 opacity-30" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 opacity-30" suppressHydrationWarning />;
 }
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -134,8 +140,15 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const section = sectionRef.current;
     if (!section) return;
 
@@ -335,7 +348,7 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [useCases.items]);
+  }, [isClient, useCases.items]);
 
 
   return (
@@ -343,20 +356,21 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
       ref={sectionRef}
       id="use-cases"
       aria-labelledby="use-cases-heading"
+      suppressHydrationWarning
       className="section-padding relative bg-[var(--color-bg)] overflow-hidden perspective"
       style={{ perspective: "1200px" }}
     >
-      {/* Enhanced animated background */}
-      <AnimatedBackground />
+      {/* Enhanced animated background - Client only */}
+      {isClient && <AnimatedBackground />}
 
       {/* Gradient overlay */}
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-50"
-        // style={{
-        //   background:
-        //     "radial-gradient(circle at 50% 50%, rgba(13, 13, 26, 0.02) 0%, transparent 50%)",
-        // }}
+        style={{
+          background:
+            "radial-gradient(circle at 50% 50%, rgba(13, 13, 26, 0.02) 0%, transparent 50%)",
+        }}
       />
 
       {/* Grid background with subtle pattern */}
