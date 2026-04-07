@@ -132,6 +132,16 @@
         "image": "/images/project-4.jpg",
         "color": "#a855f7",
         "href": "#"
+      },
+      {
+        "id": "proj-5",
+        "title": "IRON KINETIC",
+        "category": "Fitness & Wellness",
+        "description": "A premium gym website featuring elite trainer profiles, personalized training programs, class booking system, and membership management. Built for high-performance athletes and fitness enthusiasts seeking transformation.",
+        "tags": ["Next.js", "React", "Stripe", "Firebase", "Animation"],
+        "image": "/images/projects/iron-kinetic.png",
+        "color": "#c8ff00",
+        "href": "#"
       }
     ]
   },

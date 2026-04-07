@@ -136,20 +136,28 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                   minWidth: 60,
                 }}
               >
-                {/* Background image */}
-                <div className="absolute inset-0 w-full h-full">
+                {/* Background image or color fallback */}
+                <div 
+                  className="absolute inset-0 w-full h-full"
+                  style={{
+                    backgroundImage: project.id === "proj-5" ? `url(${project.image})` : `linear-gradient(135deg, ${project.color}40 0%, ${project.color}20 50%, ${project.color}30 100%)`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  {/* Dark overlay for text readability */}
                   <div
                     className="absolute inset-0 w-full h-full"
                     style={{
-                      background: `linear-gradient(135deg, ${project.color}22 0%, #08081088 60%, #080810ee 100%)`,
+                      background: `linear-gradient(135deg, rgba(13,13,26,0.6) 0%, rgba(13,13,26,0.5) 60%, rgba(13,13,26,0.7) 100%)`,
                     }}
                   />
-                  {/* Placeholder gradient when no real image */}
+                  {/* Color accent glow on hover */}
                   <div
                     className="absolute inset-0 w-full h-full transition-opacity duration-500"
                     style={{
-                      background: `radial-gradient(ellipse at 30% 40%, ${project.color}30 0%, transparent 60%)`,
-                      opacity: isHovered ? 1 : 0.5,
+                      background: `radial-gradient(ellipse at 30% 40%, ${project.color}20 0%, transparent 60%)`,
+                      opacity: isHovered ? 1 : 0.3,
                     }}
                     aria-hidden="true"
                   />
