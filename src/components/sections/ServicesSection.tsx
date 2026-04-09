@@ -61,6 +61,57 @@ export default function ServicesSection({ services }: ServicesProps) {
   const numberRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const imagePaths = services.items.map((service) => {
+      const imageName = SERVICE_IMAGES[service.id] || "web_development.jpg";
+      return `/images/services/${imageName}`;
+    });
+
+    let cancelled = false;
+    const preload = () => {
+      imagePaths.forEach((src) => {
+        const img = new window.Image();
+        img.src = src;
+        if (img.decode) {
+          void img.decode().catch(() => {});
+        }
+      });
+    };
+
+    const idleCallback = (window as Window & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    }).requestIdleCallback;
+
+    const cancelIdleCallback = (window as Window & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    }).cancelIdleCallback;
+
+    let idleId: number | null = null;
+    let timeoutId: number | null = null;
+
+    if (idleCallback) {
+      idleId = idleCallback(() => {
+        if (!cancelled) preload();
+      });
+    } else {
+      timeoutId = window.setTimeout(() => {
+        if (!cancelled) preload();
+      }, 100);
+    }
+
+    return () => {
+      cancelled = true;
+      if (idleId !== null && cancelIdleCallback) {
+        cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [services.items]);
+
+  useEffect(() => {
     const section = sectionRef.current;
     const cards = cardsRef.current;
     if (!section || !cards) return;
@@ -102,21 +153,23 @@ export default function ServicesSection({ services }: ServicesProps) {
     const cardEls = Array.from(cards.querySelectorAll<HTMLElement>("[data-service-card]"));
     cardEls.forEach((card, i) => {
       gsap.set(card, {
-        clipPath: "inset(100% 0 0 0)",
         opacity: 0,
-        y: 40,
+        y: 24,
+        scale: 0.98,
+        willChange: "transform, opacity",
       });
 
       gsap.to(card, {
-        clipPath: "inset(0% 0 0 0)",
         opacity: 1,
         y: 0,
-        duration: 0.9,
+        scale: 1,
+        duration: 0.65,
         ease: "power3.out",
-        delay: (i % 3) * 0.1,
+        delay: (i % 3) * 0.06,
+        force3D: true,
         scrollTrigger: {
           trigger: card,
-          start: "top 90%",
+          start: "top 94%",
           once: true,
         },
       });
@@ -127,12 +180,12 @@ export default function ServicesSection({ services }: ServicesProps) {
         gsap.to(icon, {
           scale: 1,
           rotate: 0,
-          duration: 0.5,
+          duration: 0.4,
           ease: "back.out(2)",
-          delay: (i % 3) * 0.1 + 0.4,
+          delay: (i % 3) * 0.06 + 0.2,
           scrollTrigger: {
             trigger: card,
-            start: "top 90%",
+            start: "top 94%",
             once: true,
           },
         });
@@ -199,18 +252,13 @@ export default function ServicesSection({ services }: ServicesProps) {
         >
           {services.items.map((service, i) => {
             const imagePath = SERVICE_IMAGES[service.id] || "web_development.jpg";
-            const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-
             const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
               const card = e.currentTarget;
               const rect = card.getBoundingClientRect();
               const x = ((e.clientX - rect.left) / rect.width) * 100;
               const y = ((e.clientY - rect.top) / rect.height) * 100;
-              setMousePos({ x, y });
-            };
-
-            const handleMouseLeave = () => {
-              setMousePos({ x: 50, y: 50 });
+              card.style.setProperty("--mx", `${x}%`);
+              card.style.setProperty("--my", `${y}%`);
             };
 
             return (
@@ -220,11 +268,11 @@ export default function ServicesSection({ services }: ServicesProps) {
               role="listitem"
               className="group relative p-7 rounded-2xl border border-[var(--color-border)] cursor-pointer overflow-hidden transition-all duration-300 hover:border-[rgba(200,255,0,0.3)]"
               onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
               style={{
                 backgroundImage: `url(/images/services/${imagePath})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                willChange: "transform, opacity",
               }}
             >
               {/* Background image overlay for text readability */}
@@ -241,7 +289,7 @@ export default function ServicesSection({ services }: ServicesProps) {
                 aria-hidden="true"
                 className="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100"
                 style={{
-                  background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 25%, rgba(255,255,255,0.05) 50%, transparent 80%)`,
+                  background: "radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 25%, rgba(255,255,255,0.05) 50%, transparent 80%)",
                 }}
               />
 
