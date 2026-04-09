@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 import type { SiteContent } from "@/types";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -117,6 +116,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
           {projects.items.map((project) => {
             const isHovered = hoveredId === project.id;
             const hasHover = hoveredId !== null;
+            const hasImage = project.image.trim().length > 0;
 
             return (
               <article
@@ -140,16 +140,19 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                 <div 
                   className="absolute inset-0 w-full h-full"
                   style={{
-                    backgroundImage: project.id === "proj-5" ? `url(${project.image})` : `linear-gradient(135deg, ${project.color}40 0%, ${project.color}20 50%, ${project.color}30 100%)`,
+                    backgroundImage: hasImage
+                      ? `url("${project.image}")`
+                      : `linear-gradient(135deg, ${project.color}40 0%, ${project.color}20 50%, ${project.color}30 100%)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 >
                   {/* Dark overlay for text readability */}
                   <div
-                    className="absolute inset-0 w-full h-full"
+                    className="absolute inset-0 w-full h-full transition-opacity duration-500"
                     style={{
-                      background: `linear-gradient(135deg, rgba(13,13,26,0.6) 0%, rgba(13,13,26,0.5) 60%, rgba(13,13,26,0.7) 100%)`,
+                      background: "linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.68) 60%, rgba(0,0,0,0.85) 100%)",
+                      opacity: isHovered ? 0.18 : 1,
                     }}
                   />
                   {/* Color accent glow on hover */}
@@ -170,7 +173,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                   aria-hidden={isHovered}
                 >
                   <span
-                    className="text-sm font-bold text-[var(--color-text-secondary)] uppercase tracking-widest whitespace-nowrap"
+                    className="text-sm font-bold text-white uppercase tracking-widest whitespace-nowrap drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]"
                     style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
                   >
                     {project.title}
@@ -183,23 +186,23 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                   style={{ opacity: isHovered ? 1 : 0, transform: isHovered ? "translateY(0)" : "translateY(20px)" }}
                   aria-hidden={!isHovered}
                 >
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/78 to-transparent pointer-events-none" aria-hidden="true" />
                   <span
-                    className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 w-fit"
-                    style={{ background: `${project.color}22`, color: project.color }}
+                    className="relative inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 w-fit bg-black/85 text-white border border-black/60"
                   >
                     {project.category}
                   </span>
-                  <h3 className="text-3xl font-black text-[var(--color-text-primary)] mb-3 tracking-tight">
+                  <h3 className="relative text-3xl font-black text-black mb-3 tracking-tight">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-5 max-w-sm">
+                  <p className="relative text-sm text-black/85 leading-relaxed mb-5 max-w-sm">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="relative flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs font-medium px-3 py-1 rounded-full bg-black/40 border border-white/10 text-[var(--color-text-muted)]"
+                        className="text-xs font-medium px-3 py-1 rounded-full bg-black/90 border border-black/60 text-white"
                       >
                         {tag}
                       </span>
@@ -207,8 +210,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                   </div>
                   <a
                     href={project.href}
-                    className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 hover:gap-3"
-                    style={{ color: project.color }}
+                    className="relative inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 hover:gap-3 text-black"
                     aria-label={`View ${project.title} project`}
                   >
                     View Project
