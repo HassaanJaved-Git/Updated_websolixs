@@ -198,10 +198,10 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
         card,
         {
           opacity: 0,
-          x: isLeftCard ? -150 : 150,
-          y: 100,
-          rotateX: 30,
-          rotateY: isLeftCard ? -25 : 25,
+          x: isLeftCard ? -90 : 90,
+          y: 50,
+          rotateX: 16,
+          rotateY: isLeftCard ? -14 : 14,
         },
         {
           opacity: 1,
@@ -209,12 +209,12 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
           y: 0,
           rotateX: 0,
           rotateY: 0,
-          duration: 1.2,
+          duration: 0.85,
           ease: "cubic-bezier(0.34, 1.56, 0.64, 1)",
-          delay: index * 0.2,
+          delay: index * 0.08,
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
+            start: "top 96%",
             once: true,
           },
         }
@@ -226,13 +226,13 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
         { scaleX: 0 },
         {
           scaleX: 1,
-          duration: 1,
+          duration: 0.7,
           ease: "power3.out",
-          delay: index * 0.2 + 0.25,
+          delay: index * 0.08 + 0.12,
           transformOrigin: isLeftCard ? "left" : "right",
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
+            start: "top 96%",
             once: true,
           },
         }
@@ -246,12 +246,12 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
           opacity: 1,
           scale: 1,
           rotateZ: 0,
-          duration: 1,
+          duration: 0.7,
           ease: "cubic-bezier(0.34, 1.56, 0.64, 1)",
-          delay: index * 0.2 + 0.1,
+          delay: index * 0.08 + 0.05,
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
+            start: "top 96%",
             once: true,
           },
         }
@@ -265,13 +265,13 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
           opacity: 1,
           x: 0,
           y: 0,
-          duration: 0.7,
-          stagger: 0.1,
+          duration: 0.55,
+          stagger: 0.07,
           ease: "power3.out",
-          delay: index * 0.2 + 0.25,
+          delay: index * 0.08 + 0.12,
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
+            start: "top 96%",
             once: true,
           },
         }
@@ -419,7 +419,7 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
             }}
           />
 
-          <div className="space-y-16 lg:space-y-24">
+          <div className="space-y-6 lg:space-y-10">
             {useCases.items.map((useCase, index) => (
               <div
                 key={useCase.id}
@@ -428,7 +428,7 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative flex gap-0 lg:gap-12 items-stretch min-h-[400px] lg:min-h-auto lg:flex-row"
+                className="group relative flex gap-0 lg:gap-8 items-stretch min-h-[310px] lg:min-h-auto lg:flex-row"
                 style={{
                   perspective: "1000px",
                   transformStyle: "preserve-3d",
