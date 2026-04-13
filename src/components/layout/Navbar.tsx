@@ -54,17 +54,33 @@ export default function Navbar({ nav }: NavbarProps) {
         role="banner"
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? "py-3 bg-[var(--color-bg)]/90 backdrop-blur-xl border-b border-[var(--color-border)]"
-            : "py-5"
+          scrolled ? "py-2" : "py-5"
         )}
       >
-        <div className="container-wide flex items-center justify-between">
+        <div className="container-wide">
+          <div
+            className={cn(
+              "relative flex items-center justify-between border border-transparent transition-all duration-500",
+              scrolled
+                ? "mx-auto max-w-8xl rounded-full border-white/45 bg-white/35 backdrop-blur-sm shadow-[0_12px_40px_rgba(13,13,26,0.16),inset_0_1px_0_rgba(255,255,255,0.5)] px-5 md:px-7 py-2.5"
+                : ""
+            )}
+          >
+            {scrolled && (
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 55%, rgba(255,255,255,0.2) 100%)",
+                }}
+              />
+            )}
           {/* Logo */}
           <a
             href="#"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group flex items-center gap-2 focus-visible:outline-none"
+            className="group relative z-10 flex items-center gap-2 focus-visible:outline-none"
             aria-label={`${nav.logo} — go to top`}
           >
             <span className="relative text-xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] uppercase">
@@ -77,7 +93,7 @@ export default function Navbar({ nav }: NavbarProps) {
           <nav
             role="navigation"
             aria-label="Main navigation"
-            className="hidden md:flex items-center gap-8"
+            className="relative z-10 hidden md:flex items-center gap-8"
           >
             {nav.items.map((item) => (
               <a
@@ -93,7 +109,7 @@ export default function Navbar({ nav }: NavbarProps) {
           </nav>
 
           {/* CTA + Burger */}
-          <div className="flex items-center gap-4">
+          <div className="relative z-10 flex items-center gap-4">
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
@@ -107,7 +123,7 @@ export default function Navbar({ nav }: NavbarProps) {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
-              className="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 relative z-50"
+              className="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 relative z-20"
             >
               <span
                 className={cn(
@@ -128,6 +144,7 @@ export default function Navbar({ nav }: NavbarProps) {
                 )}
               />
             </button>
+          </div>
           </div>
         </div>
       </header>

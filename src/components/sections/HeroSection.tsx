@@ -465,11 +465,15 @@ export default function HeroSection({ hero }: HeroProps) {
               e.preventDefault();
               document.querySelector(hero.ctaSecondary.href)?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-[rgba(255,255,255,0.12)] text-[var(--color-text-secondary)] font-semibold text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-[var(--color-text-primary)] transition-all duration-300"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full border border-[rgba(255,255,255,0.2)] bg-transparent text-[var(--color-text-secondary)] font-semibold text-sm overflow-hidden transition-all duration-500 hover:border-[#1A3263] hover:text-white"
             data-cursor-hover
           >
-            {hero.ctaSecondary.label}
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="opacity-50">
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 origin-left scale-x-0 bg-[#1A3263] transition-transform duration-500 ease-out group-hover:scale-x-100"
+            />
+            <span className="relative z-10">{hero.ctaSecondary.label}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="relative z-10 opacity-60">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
