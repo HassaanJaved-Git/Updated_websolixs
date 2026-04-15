@@ -66,9 +66,8 @@ export default function Footer({ footer, nav }: FooterProps) {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[var(--color-border)]">
+        <div className="flex flex-col sm:flex-row items-center justify-center pt-8 border-t border-[var(--color-border)]">
           <p className="text-xs text-[var(--color-text-muted)]">{footer.legal}</p>
-          <p className="text-xs text-[var(--color-text-muted)]">{footer.builtWith}</p>
         </div>
       </div>
     </footer>
