@@ -208,7 +208,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                       </span>
                     ))}
                   </div>
-                  <a
+                  {/* <a
                     href={project.href}
                     className="relative inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 hover:gap-3 text-black"
                     aria-label={`View ${project.title} project`}
@@ -217,7 +217,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                  </a>
+                  </a> */}
                 </div>
               </article>
             );

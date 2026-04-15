@@ -401,7 +401,7 @@ export default function HeroSection({ hero }: HeroProps) {
         {/* Badge */}
         <div
           ref={badgeRef}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[rgba(200,255,0,0.3)] bg-[rgba(200,255,0,0.06)] mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1A3263] bg-[rgba(75, 38, 223, 1)] mb-8"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-pulse" aria-hidden="true" />
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">
@@ -445,7 +445,7 @@ export default function HeroSection({ hero }: HeroProps) {
               e.preventDefault();
               document.querySelector(hero.ctaPrimary.href)?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="magnetic group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-bold text-sm overflow-hidden transition-all duration-300 hover:gap-4 hover:shadow-[0_0_50px_rgba(200,255,0,0.4)]"
+            className="magnetic group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--color-accent)] text-[var(--color-bg)] font-bold text-sm overflow-hidden transition-all duration-300 hover:gap-4 hover:shadow-[0_0_40px_15px_rgba(26,50,99,0.6)]"
             data-cursor-hover
           >
             <span className="relative z-10">{hero.ctaPrimary.label}</span>

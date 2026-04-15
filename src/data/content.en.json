@@ -49,7 +49,7 @@
         "id": "web-dev",
         "icon": "Globe",
         "title": "Web Development",
-        "description": "Performant, scalable web apps built on modern stacks. We ship React, Next.js, and Node.js solutions that load fast and scale effortlessly.",
+        "description": "Performant, scalable web apps built on modern stacks. We ship solutions that load fast and scale effortlessly.",
         "tags": ["Next.js", "React", "Node.js", "TypeScript"]
       },
       {
