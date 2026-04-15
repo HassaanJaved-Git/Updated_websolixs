@@ -141,7 +141,7 @@ body.cursor-hover .cursor-ring {
 }
 
 .section-padding {
-  padding-block: var(--section-padding);
+  padding-top: var(--section-padding);
 }
 
 /* Text gradient */
