@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SiteContent } from "@/types";
+import BiToneHeading from "@/components/ui/BiToneHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -121,7 +122,7 @@ export default function StatsSection({ stats }: StatsProps) {
           data-stats-heading
           className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--color-accent)] text-center mb-14"
         >
-          {stats.heading}
+          <BiToneHeading text={stats.heading} />
         </h2>
 
         <div

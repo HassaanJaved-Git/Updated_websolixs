@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SiteContent } from "@/types";
+import BiToneHeading from "@/components/ui/BiToneHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,7 +82,7 @@ export default function ContactSection({ contact }: ContactProps) {
               id="contact-heading"
               className="text-[clamp(2.5rem,5vw,4rem)] font-black leading-tight tracking-tight text-[var(--color-text-primary)] mb-6 whitespace-pre-line"
             >
-              {contact.heading}
+              <BiToneHeading text={contact.heading} />
             </h2>
             <p className="text-[var(--color-text-secondary)] text-lg mb-10">
               {contact.subheading}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SiteContent } from "@/types";
+import BiToneHeading from "@/components/ui/BiToneHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -395,11 +396,7 @@ export default function UseCasesSection({ useCases }: UseCasesSectionProps) {
             id="use-cases-heading"
             className="text-[clamp(2.8rem,6vw,4.5rem)] font-black leading-tight tracking-tight text-[var(--color-text-primary)] mb-6 max-w-4xl mx-auto"
           >
-            {useCases.heading.split(" ").map((word, idx) => (
-              <span key={idx}>
-                {word}{" "}
-              </span>
-            ))}
+            <BiToneHeading text={useCases.heading} />
           </h2>
           <p className="text-[var(--color-text-secondary)] text-lg max-w-3xl mx-auto leading-relaxed">
             {useCases.subheading}

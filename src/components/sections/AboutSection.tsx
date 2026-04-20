@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SiteContent } from "@/types";
+import BiToneHeading from "@/components/ui/BiToneHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,7 +134,7 @@ export default function AboutSection({ about }: AboutProps) {
               id="about-heading"
               className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[0.95] tracking-[-0.04em] text-[var(--color-text-primary)] mb-8 whitespace-pre-line"
             >
-              {about.heading}
+              <BiToneHeading text={about.heading} />
             </h2>
 
             <p

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SiteContent } from "@/types";
+import BiToneHeading from "@/components/ui/BiToneHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -236,7 +237,7 @@ export default function ServicesSection({ services }: ServicesProps) {
             id="services-heading"
             className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[0.95] tracking-[-0.04em] text-[var(--color-text-primary)] mb-5"
           >
-            {services.heading}
+            <BiToneHeading text={services.heading} />
           </h2>
           <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
             {services.subheading}
